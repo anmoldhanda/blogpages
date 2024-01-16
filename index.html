@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- ====================== custom css ====================== -->
-    <link rel="stylesheet" href="style.css" />
+    <!-- ====================== css ====================== -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- <link rel="stylesheet" href="bootstrap.css" /> -->
     <!-- ====================== fontawesome icons ====================== -->
     <link
       rel="stylesheet"
@@ -17,7 +19,7 @@
   </head>
   <body>
     <!-- ====================== navigation menu ====================== -->
-    <div class="preheader maxwidth1">
+    <div class="preheader">
       <div class="contactsdetails">
         <div class="preheaderphonenumber">
           <a href="tel:+911234567890"
@@ -50,9 +52,9 @@
         ></a>
       </div>
     </div>
-    <nav class="navigationbar maxwidth1">
+    <nav class="navigationbar">
       <div class="logo">
-        <a href="#" class="logotext">fresh blogs</a>
+        <a href="index.html" class="logotext">fresh blogs</a>
       </div>
       <ul class="navlist">
         <li class="listitems">
@@ -67,32 +69,38 @@
         <li class="listitems">
           <a href="blogdetails.html" class="navlinks">contact</a>
         </li>
+        <div class="searchblogcontainer">
+          <form method="get">
+            <i class="fa fa-search" id="searchblogicon"></i>
+            <input
+              type="search"
+              name="query"
+              placeholder="search for blogs here"
+              id="searchbloginputfield"
+            />
+          </form>
+        </div>
       </ul>
-      <div class="searchblogcontainer">
-        <form method="get">
-          <i class="fa fa-search" id="searchblogicon"></i>
-          <input
-            type="search"
-            name="query"
-            placeholder="search for blogs here"
-            id="searchbloginputfield"
-          />
-        </form>
+      <!-- ====================== hamburger menu animation ====================== -->
+      <div class="hamburgermenu">
+        <span class="bars"></span>
+        <span class="bars"></span>
+        <span class="bars"></span>
       </div>
     </nav>
     <!-- ====================== hero section ====================== -->
-    <div class="herosectionbanner maxwidth1">
+    <div class="herosectionbanner">
       <div class="herosecdetails">
         <h1 class="bannerheadline">Hacking E-Books</h1>
       </div>
     </div>
     <!-- ====================== blogs section ====================== -->
-    <section class="blogsareasection maxwidth1">
+    <section class="blogsareasection">
       <h2 class="blogsareaheadline">Our Articles</h2>
       <div class="blogscontainer">
         <div class="blogcards">
           <div class="blogphotobox">
-            <img src="svg/baremetal.svg" alt="blog photo" class="blogphoto" />
+            <img src="images/baremetal.svg" alt="blog photo" class="blogphoto" />
           </div>
           <div class="blogdetails">
             <div class="blogiconsdetails">
@@ -131,7 +139,7 @@
         <div class="blogcards">
           <div class="blogphotobox">
             <img
-              src="svg/usbinstallation.svg"
+              src="images/usbinstallation.svg"
               alt="blog photo"
               class="blogphoto"
             />
@@ -172,7 +180,7 @@
         </div>
         <div class="blogcards">
           <div class="blogphotobox">
-            <img src="svg/cloudserver.svg" alt="blog photo" class="blogphoto" />
+            <img src="images/cloudserver.svg" alt="blog photo" class="blogphoto" />
           </div>
           <div class="blogdetails">
             <div class="blogiconsdetails">
@@ -210,7 +218,7 @@
         </div>
         <div class="blogcards">
           <div class="blogphotobox">
-            <img src="svg/vmware.svg" alt="blog photo" class="blogphoto" />
+            <img src="images/vmware.svg" alt="blog photo" class="blogphoto" />
           </div>
           <div class="blogdetails">
             <div class="blogiconsdetails">
@@ -249,7 +257,7 @@
       </div>
     </section>
     <!-- ====================== footer ====================== -->
-    <footer class="footerarea maxwidth1">
+    <footer class="footerarea">
       <div class="footercontainer">
         <div class="footercolumns">
           <h3 class="companyheadline">important links</h3>
@@ -299,7 +307,9 @@
           </ul>
         </div>
         <div class="footercolumns">
-          <h3 class="companyheadline">fresh blogs</h3>
+          <a href="index.html">
+            <h3 class="companyheadline">fresh blogs</h3>
+          </a>
           <div class="companydetails">
             <p class="companytext">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni,
@@ -319,7 +329,8 @@
         </div>
       </div>
     </footer>
-    <!-- ====================== custom js ====================== -->
-    <script src="main.js"></script>
+    <!-- ====================== js ====================== -->
+    <script src="js/main.js"></script>
+    <!-- <script src="bootstrap.js"></script> -->
   </body>
 </html>

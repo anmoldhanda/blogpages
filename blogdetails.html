@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- ====================== custom css ====================== -->
-    <link rel="stylesheet" href="style.css" />
+    <!-- ====================== css ====================== -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- <link rel="stylesheet" href="bootstrap.css" /> -->
     <!-- ====================== fontawesome icons ====================== -->
     <link
       rel="stylesheet"
@@ -17,7 +19,7 @@
   </head>
   <body>
     <!-- ====================== navigation menu ====================== -->
-    <div class="preheader maxwidth1">
+    <div class="preheader">
       <div class="contactsdetails">
         <div class="preheaderphonenumber">
           <a href="tel:+911234567890"
@@ -50,44 +52,51 @@
         ></a>
       </div>
     </div>
-    <nav class="navigationbar maxwidth1">
+    <nav class="navigationbar">
       <div class="logo">
-        <a href="#" class="logotext">fresh blogs</a>
+        <a href="index.html" class="logotext">fresh blogs</a>
       </div>
       <ul class="navlist">
         <li class="listitems">
-          <a href="index.html" class="navlinks">home</a>
+          <a href="blogdetails.html" class="navlinks">home</a>
         </li>
         <li class="listitems">
-          <a href="index.html" class="navlinks">about us</a>
+          <a href="blogdetails.html" class="navlinks">about us</a>
         </li>
         <li class="listitems">
-          <a href="index.html" class="navlinks">blogs</a>
+          <a href="blogdetails.html" class="navlinks">blogs</a>
         </li>
         <li class="listitems">
-          <a href="index.html" class="navlinks">contact</a>
+          <a href="blogdetails.html" class="navlinks">contact</a>
         </li>
+        <div class="searchblogcontainer">
+          <form method="get">
+            <i class="fa fa-search" id="searchblogicon"></i>
+            <input
+              type="search"
+              name="query"
+              placeholder="search for blogs here"
+              id="searchbloginputfield"
+            />
+          </form>
+        </div>
       </ul>
-      <div class="searchblogcontainer">
-        <form method="get">
-          <i class="fa fa-search" id="searchblogicon"></i>
-          <input
-            type="search"
-            name="query"
-            placeholder="search for blogs here"
-            id="searchbloginputfield"
-          />
-        </form>
+      <!-- ====================== hamburger menu animation ====================== -->
+      <div class="hamburgermenu">
+        <span class="bars"></span>
+        <span class="bars"></span>
+        <span class="bars"></span>
       </div>
     </nav>
     <!-- ====================== hero section ====================== -->
-    <div class="herosectionbanner maxwidth1">
+    <div class="herosectionbanner">
       <div class="herosecdetails">
         <h1 class="bannerheadline">Hacking E-Books</h1>
       </div>
     </div>
-    <!-- ====================== blogs section ====================== -->
-    <div class="blogsdetailsidebarcontainer maxwidth1">
+    <!-- ====================== blogs container sidebar & details ====================== -->
+    <div class="blogsdetailsidebarcontainer">
+      <!-- ====================== blogs details ====================== -->
       <div class="blogdetailcontainer">
         <div class="blogcontent">
           <h2 class="blogheadline">Internal Infrastructure & Kali Autopilot</h2>
@@ -127,7 +136,7 @@
             nostrum iure adipisci beatae, quam reiciendis quod! Voluptate.
           </p>
           <br />
-          <img src="svg/blogcardphoto.jpg" alt="" class="blogpdetailhoto" />
+          <img src="images/blogcardphoto.jpg" alt="" class="blogpdetailhoto" />
           <h3 class="blogheadline blogverticaline">Xyz blog title</h3>
           <p class="blogdescription">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit sunt
@@ -153,7 +162,7 @@
           </p>
           <div class="blogdetailcard">
             <div class="blogdetailcardpic">
-              <img src="svg/cloudserver.svg" alt="" />
+              <img src="images/cloudserver.svg" alt="" />
             </div>
             <div class="blogdetailcontent">
               <h3 class="blogheadline">Xyz blog title</h3>
@@ -188,7 +197,7 @@
             <div class="commentscontainer">
               <div class="commentscard">
                 <div class="commentsuserpic">
-                  <img src="svg/maleuser.png" alt="user photo" />
+                  <img src="images/maleuser.png" alt="user photo" />
                 </div>
                 <div class="commentdetails">
                   <h3 class="blogheadline">Adin Ross</h3>
@@ -207,7 +216,7 @@
               </div>
               <div class="commentscard cardspaceleft">
                 <div class="commentsuserpic">
-                  <img src="svg/maleuser.png" alt="user photo" />
+                  <img src="images/maleuser.png" alt="user photo" />
                 </div>
                 <div class="commentdetails">
                   <h3 class="blogheadline">Adin Ross</h3>
@@ -322,7 +331,7 @@
           <div class="recentpostscardscontainer">
             <div class="recentpostscard">
               <div class="imagebox">
-                <img src="svg/blogcardphoto.jpg" alt="recent posts pic" />
+                <img src="images/blogcardphoto.jpg" alt="recent posts pic" />
               </div>
               <div class="recentpostcontent">
                 <p class="blogdescription">
@@ -335,7 +344,7 @@
             </div>
             <div class="recentpostscard">
               <div class="imagebox">
-                <img src="svg/blogcardphoto.jpg" alt="recent posts pic" />
+                <img src="images/blogcardphoto.jpg" alt="recent posts pic" />
               </div>
               <div class="recentpostcontent">
                 <p class="blogdescription">
@@ -348,7 +357,7 @@
             </div>
             <div class="recentpostscard">
               <div class="imagebox">
-                <img src="svg/blogcardphoto.jpg" alt="recent posts pic" />
+                <img src="images/blogcardphoto.jpg" alt="recent posts pic" />
               </div>
               <div class="recentpostcontent">
                 <p class="blogdescription">
@@ -399,7 +408,7 @@
       </div>
     </div>
     <!-- ====================== footer ====================== -->
-    <footer class="footerarea maxwidth1">
+    <footer class="footerarea">
       <div class="footercontainer">
         <div class="footercolumns">
           <h3 class="companyheadline">important links</h3>
@@ -449,7 +458,9 @@
           </ul>
         </div>
         <div class="footercolumns">
-          <h3 class="companyheadline">fresh blogs</h3>
+          <a href="index.html">
+            <h3 class="companyheadline">fresh blogs</h3>
+          </a>
           <div class="companydetails">
             <p class="companytext">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni,
@@ -469,7 +480,8 @@
         </div>
       </div>
     </footer>
-    <!-- ====================== custom js ====================== -->
-    <script src="main.js"></script>
+    <!-- ====================== js ====================== -->
+    <script src="js/main.js"></script>
+    <!-- <script src="bootstrap.js"></script> -->
   </body>
 </html>

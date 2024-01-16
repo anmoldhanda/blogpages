@@ -3,17 +3,10 @@
 
 :root {
   /* ====================== colors ====================== */
-  --color-primary: #7380ec;
   --color-danger: #ff7782;
-  --color-success: #41f1b6;
-  --color-warning: #ffbb55;
   --color-white: #fff;
-  --color-info-dark: #7d8da1;
-  --color-info-light: #dce1eb;
   --color-dark: #363949;
   --color-light: #c7cbf2;
-  --blog-sidebar: #d3d3d3;
-  --color-primary-variant: #111e88;
   --color-dark-variant: #677483;
   --color-background: #e2e3f0;
   /* ====================== border radius ====================== */
@@ -64,12 +57,6 @@ h4 {
 h5 {
   font-size: 0.77rem;
 }
-/* ========================= utility classes ========================= */
-
-/* .maxwidth1 {
-  max-width: 90vw;
-  margin: auto;
-} */
 
 .preheader {
   display: flex;
@@ -105,6 +92,7 @@ h5 {
   color: var(--color-dark);
 }
 
+/* ========================= navigation menu ========================= */
 .navigationbar {
   display: flex;
   align-items: center;
@@ -128,8 +116,8 @@ h5 {
 .logo .logotext {
   color: var(--color-dark);
   text-transform: capitalize;
-  padding: 5px 8px;
-  border-radius: 5px;
+  /* padding: 5px 8px;
+  border-radius: 5px; */
   font-size: 1.3rem;
 }
 
@@ -176,8 +164,30 @@ h5 {
   left: 0rem;
 }
 
+/* ========================= hamburger menu animation ========================= */
+.hamburgermenu {
+  width: 30px;
+  height: 30px;
+  /* background-color: black; */
+  cursor: pointer;
+  display: none;
+}
+
+.hamburgermenu .bars {
+  height: 2px;
+  width: 25px;
+  background-color: var(--color-danger);
+  margin: 4px auto;
+  /* display: block; */
+}
+
+.hamburgermenu .bars:nth-child(2) {
+  position: relative;
+  left: 0.5em;
+}
+
 .herosectionbanner {
-  background-image: url("/svg/home-banner.jpg");
+  background-image: url("/images/home-banner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -286,6 +296,7 @@ h5 {
 .blogcontent .blogdescription {
   color: var(--color-dark-variant);
   font-size: 0.9rem;
+  margin: 1em 0;
   text-align: justify;
 }
 
@@ -486,7 +497,7 @@ h5 {
 
 /* ====================== blog comments form ====================== */
 .blogcommentformcontainer {
-  background-color: var(--blog-sidebar);
+  background-color: lightgrey;
   padding: var(--card-border-radius);
 }
 
@@ -538,6 +549,10 @@ h5 {
 .searchinputfield {
   position: relative;
   padding: var(--border-radius-3) 0;
+}
+
+.searchinputfield .inputfields:focus {
+  box-shadow: 0 0 0.5em 0 var(--color-danger) inset;
 }
 
 .searchinputfield i {

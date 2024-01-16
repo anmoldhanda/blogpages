@@ -1,3 +1,12 @@
+// ================================ hamburger menu animation ================================
+const hamburgermenu = document.querySelector(".hamburgermenu");
+const bars = document.querySelectorAll(".bars");
+const navlist = document.querySelector(".navlist");
+hamburgermenu.addEventListener("click", () => {
+  hamburgermenu.classList.toggle("active");
+  navlist.classList.toggle("showhidenavmenu");
+});
+
 // ================================ hide show the search bar ================================
 const searchbloginputfield = document.getElementById("searchbloginputfield");
 const searchblogicon = document.getElementById("searchblogicon");
