@@ -382,7 +382,7 @@ h5 {
 
 .mailboxicon {
   color: var(--color-danger);
-  background: var(--color-background);
+  background: transparent;
   position: absolute;
   left: 2px;
   bottom: 0.4rem;

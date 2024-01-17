@@ -87,9 +87,12 @@
   .blogdetailcard,
   .blogcards {
     flex-direction: column;
+    width: 80vw;
+    margin: 0 auto;
   }
   .blogdetailcard {
     padding: 0;
+    box-shadow: none;
   }
   .blogdetailcardpic {
     border: none;
@@ -99,7 +102,7 @@
   }
   .mailboxicon {
     color: var(--color-danger);
-    background: var(--color-background);
+    background: transparent;
     position: absolute;
     left: 0.1rem;
     bottom: 2.3rem;
@@ -159,13 +162,18 @@
   }
   .blogcommentformcontainer {
     padding: var(--border-radius-3) var(--border-radius-1);
-    box-shadow: var(--box-shadow);
+    box-shadow: none;
     background: transparent;
   }
   .sidebarcontainer .searchblogscontainer,
   .sidebarcontainer .blogcategoriescontainer,
   .sidebarcontainer .recentpostscontainer {
     padding: 0;
+    box-shadow: none;
+  }
+  .populartagsarea,
+  .followuscontainer {
+    box-shadow: none;
   }
   .recentpostscard .imagebox {
     width: auto;
@@ -262,9 +270,12 @@
   .blogdetailcard,
   .blogcards {
     flex-direction: column;
+    width: 80vw;
+    margin: 0 auto;
   }
   .blogdetailcard {
     padding: 0;
+    box-shadow: none;
   }
   .blogdetailcardpic {
     border: none;
@@ -274,7 +285,7 @@
   }
   .mailboxicon {
     color: var(--color-danger);
-    background: var(--color-background);
+    background: transparent;
     position: absolute;
     left: 0.1rem;
     bottom: 2.3rem;
@@ -334,13 +345,18 @@
   }
   .blogcommentformcontainer {
     padding: var(--border-radius-3) var(--border-radius-1);
-    box-shadow: var(--box-shadow);
+    box-shadow: none;
     background: transparent;
   }
   .sidebarcontainer .searchblogscontainer,
   .sidebarcontainer .blogcategoriescontainer,
   .sidebarcontainer .recentpostscontainer {
     padding: 0;
+    box-shadow: none;
+  }
+  .populartagsarea,
+  .followuscontainer {
+    box-shadow: none;
   }
   .recentpostscard .imagebox {
     width: auto;
@@ -435,6 +451,7 @@
   }
   .blogdetailcard {
     padding: 0;
+    box-shadow: none;
   }
   .blogdetailcardpic {
     border: none;
@@ -444,7 +461,7 @@
   }
   .mailboxicon {
     color: var(--color-danger);
-    background: var(--color-background);
+    background: transparent;
     position: absolute;
     left: 0.1rem;
     bottom: 2.3rem;
@@ -500,13 +517,18 @@
   }
   .blogcommentformcontainer {
     padding: var(--border-radius-3) var(--border-radius-1);
-    box-shadow: var(--box-shadow);
+    box-shadow: none;
     background: transparent;
   }
   .sidebarcontainer .searchblogscontainer,
   .sidebarcontainer .blogcategoriescontainer,
   .sidebarcontainer .recentpostscontainer {
     padding: 0;
+    box-shadow: none;
+  }
+  .populartagsarea,
+  .followuscontainer {
+    box-shadow: none;
   }
   .recentpostscard .imagebox {
     width: 5em;
@@ -601,6 +623,7 @@
   }
   .blogdetailcard {
     padding: 0;
+    box-shadow: none;
   }
   .blogdetailcardpic {
     border: none;
@@ -610,7 +633,7 @@
   }
   .mailboxicon {
     color: var(--color-danger);
-    background: var(--color-background);
+    background: transparent;
     position: absolute;
     left: 0.1rem;
     bottom: 2.3rem;
@@ -666,13 +689,18 @@
   }
   .blogcommentformcontainer {
     padding: var(--border-radius-3) var(--border-radius-1);
-    box-shadow: var(--box-shadow);
+    box-shadow: none;
     background: transparent;
   }
   .sidebarcontainer .searchblogscontainer,
   .sidebarcontainer .blogcategoriescontainer,
   .sidebarcontainer .recentpostscontainer {
     padding: 0;
+    box-shadow: none;
+  }
+  .populartagsarea,
+  .followuscontainer {
+    box-shadow: none;
   }
   .recentpostscard .imagebox {
     width: 5em;
