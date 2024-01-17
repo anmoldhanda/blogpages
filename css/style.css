@@ -21,6 +21,11 @@
   --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
+::selection {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -188,7 +193,7 @@ h5 {
 }
 
 .herosectionbanner {
-  background-image: url("/images/home-banner.jpg");
+  background-image: url("../images/home-banner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
