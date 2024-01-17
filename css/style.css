@@ -83,6 +83,7 @@ h5 {
   text-transform: capitalize;
 }
 
+.preheader .sociallinksicons i:hover,
 .preheaderphonenumber a:hover,
 .preheaderemailid a:hover {
   color: var(--color-danger);
@@ -201,7 +202,8 @@ h5 {
 .bannerheadline {
   color: white;
   text-transform: capitalize;
-  font-size: 3rem;
+  font-size: 3em;
+  text-align: center;
   font-weight: normal;
 }
 
@@ -268,12 +270,12 @@ h5 {
 
 .singleblogicon {
   padding: 4px 7px;
-  /* border: 1px solid var(--color-dark-variant); */
   border-radius: 50px;
   font-size: 0.7rem;
   cursor: pointer;
   font-weight: bold;
   color: var(--color-danger);
+  border: 1px solid transparent;
   transition: all 0.4s ease-in-out;
 }
 
@@ -633,6 +635,7 @@ h5 {
   color: var(--color-dark-variant);
   text-transform: capitalize;
   padding: 4px 10px;
+  border: 1px solid transparent;
   /* max-width: fit-content; */
   object-fit: cover;
   text-align: center;
