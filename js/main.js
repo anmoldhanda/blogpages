@@ -32,15 +32,15 @@ searchbloginputfield.addEventListener("keyup", () => {
 const blogcommentsform = document.querySelector(".blogcommentsform");
 const inputname = document.getElementById("inputname");
 const inputemail = document.getElementById("inputemail");
-const inputblogcommenttextarea = document.getElementById(
-  "inputblogcommenttextarea"
+const inputblogcommentsfield = document.getElementById(
+  "inputblogcommentsfield"
 );
 let validinputname = false;
 let validinputemail = false;
 let validinputblogtextarea = false;
 inputname.addEventListener("blur", (e) => {
   let inputnamevalue = inputname.value;
-  let regexname = /^([a-zA-Z]){3,15}$/;
+  let regexname = /^([a-zA-Z]){3,25}$/;
   if (regexname.test(inputnamevalue)) {
     validinputname = true;
     inputname.classList.remove("blogforminputerror");
@@ -67,8 +67,23 @@ blogcommentsform.addEventListener("submit", (e) => {
   if (
     validinputname == true &&
     validinputemail == true &&
-    inputblogcommenttextarea
+    inputblogcommentsfield
   ) {
+    // now all the validation are true so first it will store the user comments into localstorage then submit and reset the form
+    let storenamevalue = inputname.value;
+    let storeemailvalue = inputemail.value;
+    let inputblogcommentsfieldvalue = inputblogcommentsfield.value;
+    let postcommentsdatabase = [];
+    let postcommentsentry = {
+      name: storenamevalue,
+      emailid: storeemailvalue,
+      comments: inputblogcommentsfieldvalue,
+    };
+    postcommentsdatabase.push(postcommentsentry);
+    let postcomments = localStorage.setItem(
+      "postcomments",
+      JSON.stringify(postcommentsdatabase)
+    );
     blogcommentsform.reset();
     blogcommentsform.submit();
   } else {
