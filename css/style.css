@@ -516,6 +516,16 @@ h5 {
   align-items: center;
 }
 
+#blogformerror {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+  text-align: center;
+  margin: 1em auto;
+  text-transform: capitalize;
+  display: none;
+  padding: 6px 8px;
+}
+
 .inputfields {
   border: none;
   outline: none;

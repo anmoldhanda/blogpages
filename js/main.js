@@ -35,6 +35,7 @@ const inputemail = document.getElementById("inputemail");
 const inputblogcommentsfield = document.getElementById(
   "inputblogcommentsfield"
 );
+const blogformerror = document.getElementById("blogformerror");
 let validinputname = false;
 let validinputemail = false;
 let validinputblogtextarea = false;
@@ -83,8 +84,7 @@ blogcommentsform.addEventListener("submit", (e) => {
         return duplicatevalues.emailid == storeemailvalue;
       })
     ) {
-      alert("duplicate data detected blog with email id already exists");
-      blogcommentsform.reset();
+      blogformerror.style.display = "block";
     } else {
       let postcommentsentry = {
         name: storenamevalue,
@@ -96,10 +96,14 @@ blogcommentsform.addEventListener("submit", (e) => {
         "postcomments",
         JSON.stringify(postcommentsdatabase)
       );
+      blogcommentsform.reset();
+      blogcommentsform.submit();
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1000);
     }
-    blogcommentsform.reset();
-    blogcommentsform.submit();
   } else {
+    blogformerror.style.display = "none";
     blogcommentsform.reset();
   }
 });
