@@ -73,17 +73,30 @@ blogcommentsform.addEventListener("submit", (e) => {
     let storenamevalue = inputname.value;
     let storeemailvalue = inputemail.value;
     let inputblogcommentsfieldvalue = inputblogcommentsfield.value;
-    let postcommentsdatabase = [];
-    let postcommentsentry = {
-      name: storenamevalue,
-      emailid: storeemailvalue,
-      comments: inputblogcommentsfieldvalue,
-    };
-    postcommentsdatabase.push(postcommentsentry);
-    let postcomments = localStorage.setItem(
-      "postcomments",
-      JSON.stringify(postcommentsdatabase)
-    );
+    let postcommentsdatabase = new Array();
+    postcommentsdatabase = JSON.parse(localStorage.getItem("postcomments"))
+      ? JSON.parse(localStorage.getItem("postcomments"))
+      : [];
+    // bypass duplicate entries if the same email id user is trying to comment to the post then it can't submit the form and comment it post emailid must be unique
+    if (
+      postcommentsdatabase.some((duplicatevalues) => {
+        return duplicatevalues.emailid == storeemailvalue;
+      })
+    ) {
+      alert("duplicate data detected blog with email id already exists");
+      blogcommentsform.reset();
+    } else {
+      let postcommentsentry = {
+        name: storenamevalue,
+        emailid: storeemailvalue,
+        comments: inputblogcommentsfieldvalue,
+      };
+      postcommentsdatabase.push(postcommentsentry);
+      let postcomments = localStorage.setItem(
+        "postcomments",
+        JSON.stringify(postcommentsdatabase)
+      );
+    }
     blogcommentsform.reset();
     blogcommentsform.submit();
   } else {
