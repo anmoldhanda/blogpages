@@ -41,7 +41,7 @@ let validinputemail = false;
 let validinputblogtextarea = false;
 inputname.addEventListener("blur", (e) => {
   let inputnamevalue = inputname.value;
-  let regexname = /^([a-zA-Z]){3,25}$/;
+  let regexname = /^([a-zA-Z]\s*){3,25}$/;
   if (regexname.test(inputnamevalue)) {
     validinputname = true;
     inputname.classList.remove("blogforminputerror");
@@ -70,13 +70,16 @@ blogcommentsform.addEventListener("submit", (e) => {
     validinputemail == true &&
     inputblogcommentsfield
   ) {
-    // now all the validation are true so first it will store the user comments into localstorage then submit and reset the form
-    let storenamevalue = inputname.value;
-    let storeemailvalue = inputemail.value;
-    let inputblogcommentsfieldvalue = inputblogcommentsfield.value;
-    let postcommentsdatabase = new Array();
-    postcommentsdatabase = JSON.parse(localStorage.getItem("postcomments"))
-      ? JSON.parse(localStorage.getItem("postcomments"))
+    // now all the validation are true so first it will store the user comments into localstorage in encrypted format then submit and reset the form
+    let storenamevalue = btoa(inputname.value);
+    let storeemailvalue = btoa(inputemail.value);
+    let inputblogcommentsfieldvalue = btoa(inputblogcommentsfield.value);
+    // let postcommentsdatabase = new Array();
+    // getting the localstorage's data as encrypted format beacause we aren't printing it anywehren if need to print then use atob("pass localstorage's key as string")
+    let postcommentsdatabase = JSON.parse(
+      localStorage.getItem("cG9zdGNvbW1lbnRz")
+    )
+      ? JSON.parse(localStorage.getItem("cG9zdGNvbW1lbnRz"))
       : [];
     // bypass duplicate entries if the same email id user is trying to comment to the post then it can't submit the form and comment it post emailid must be unique
     if (
@@ -84,6 +87,7 @@ blogcommentsform.addEventListener("submit", (e) => {
         return duplicatevalues.emailid == storeemailvalue;
       })
     ) {
+      blogcommentsform.reset();
       blogformerror.style.display = "block";
     } else {
       let postcommentsentry = {
@@ -92,15 +96,14 @@ blogcommentsform.addEventListener("submit", (e) => {
         comments: inputblogcommentsfieldvalue,
       };
       postcommentsdatabase.push(postcommentsentry);
+      // ============================== encrypted the localstorage's key ==============================
       let postcomments = localStorage.setItem(
-        "postcomments",
+        btoa("postcomments"),
         JSON.stringify(postcommentsdatabase)
       );
-      blogcommentsform.reset();
       blogcommentsform.submit();
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 1000);
+      blogcommentsform.reset();
+      location.href = "index.html";
     }
   } else {
     blogformerror.style.display = "none";
