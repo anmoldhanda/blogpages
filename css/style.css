@@ -224,10 +224,11 @@ h5 {
 
 .blogscontainer {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, 1fr);
-  gap: 2em;
-  /* max-width: 80vw; */
+  gap: 1em;
+  place-content: center;
+  max-width: 80vw;
   margin: 0 auto;
   padding: var(--card-border-radius);
 }
@@ -237,7 +238,7 @@ h5 {
   align-items: center;
   border-radius: var(--border-radius-3);
   padding: var(--border-radius-2);
-  /* box-shadow: 0 0 0.5em 0.1em var(--color-danger); */
+  box-shadow: 0 0 0.5em 0.1em var(--color-danger);
   transition: all 0.4s ease-in-out;
 }
 
@@ -309,10 +310,10 @@ h5 {
   text-align: justify;
 }
 
-.blogphotobox {
+/* .blogphotobox {
   height: 100%;
-  width: 20rem;
-}
+  width: 100%;
+} */
 
 .blogphoto {
   height: 100%;

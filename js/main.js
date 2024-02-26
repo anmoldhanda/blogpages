@@ -21,7 +21,7 @@ searchbloginputfield.addEventListener("keyup", () => {
   let singleblogcard = Array.from(blogcards).forEach((singleblogcard) => {
     let blogcardtext = singleblogcard.textContent.toLowerCase();
     if (blogcardtext.includes(searchterm)) {
-      singleblogcard.style.display = "block";
+      singleblogcard.style.display = "flex";
     } else {
       singleblogcard.style.display = "none";
     }
@@ -29,30 +29,31 @@ searchbloginputfield.addEventListener("keyup", () => {
 });
 
 // ================================ news api ================================
-const apikey = "d78bc78661f64e2ca8be27e4d918e917";
-const apicountry = "in";
-const apicategory = "technology";
-const apiurl = `https://newsapi.org/v2/top-headlines?country=${apicountry}&category=${apicategory}&apiKey=${apikey}`;
-let blogscontainer = document.querySelector(".blogscontainer");
-let fetchapi = fetch(apiurl);
-fetchapi
-  .then((response) => {
-    // ================================ printing the response in json format from the news api ================================
-    // console.log(response);
-    return response.json();
-  })
-  .then((data) => {
-    let allarticles = data.articles;
-    console.log(allarticles);
-    let eacharticletext = "";
-    for (let eacharticle in allarticles) {
-      console.log(allarticles[eacharticle]);
-      if (
-        allarticles[eacharticle].urlToImage &&
-        allarticles[eacharticle].author !== null
-      ) {
-        // if the api data is containing the particular data's image with author name is not equal to null then it will only show the data otherwise not
-        eacharticle = `<div class="blogcards">
+function technewsapi() {
+  const apikey = "d78bc78661f64e2ca8be27e4d918e917";
+  const apicountry = "in";
+  const apicategory = "technology";
+  const apiurl = `https://newsapi.org/v2/top-headlines?country=${apicountry}&category=${apicategory}&apiKey=${apikey}`;
+  let blogscontainer = document.querySelector(".blogscontainer");
+  let fetchapi = fetch(apiurl);
+  fetchapi
+    .then((response) => {
+      // ================================ printing the response in json format from the news api ================================
+      // console.log(response);
+      return response.json();
+    })
+    .then((data) => {
+      let allarticles = data.articles;
+      console.log(allarticles);
+      let eacharticletext = "";
+      for (let eacharticle in allarticles) {
+        console.log(allarticles[eacharticle]);
+        if (
+          allarticles[eacharticle].urlToImage &&
+          allarticles[eacharticle].author !== null
+        ) {
+          // if the api data is containing the particular data's image with author name is not equal to null then it will only show the data otherwise not
+          eacharticle = `<div class="blogcards">
           <div class="blogphotobox">
             <img
               src="${allarticles[eacharticle].urlToImage}"
@@ -89,9 +90,11 @@ fetchapi
             </div>
           </div>
         </div>`;
-        eacharticletext += eacharticle;
+          eacharticletext += eacharticle;
+        }
       }
-    }
-    blogscontainer.innerHTML = eacharticletext;
-    console.log(data);
-  });
+      blogscontainer.innerHTML = eacharticletext;
+      console.log(data);
+    });
+}
+// technewsapi();
