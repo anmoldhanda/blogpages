@@ -30,10 +30,10 @@ searchbloginputfield.addEventListener("keyup", () => {
 
 // ================================ news api ================================
 function technewsapi() {
-  const apikey = "d78bc78661f64e2ca8be27e4d918e917";
-  const apicountry = "in";
-  const apicategory = "technology";
-  const apiurl = `https://newsapi.org/v2/top-headlines?country=${apicountry}&category=${apicategory}&apiKey=${apikey}`;
+  // const apikey = "d78bc78661f64e2ca8be27e4d918e917";
+  // const apicountry = "in";
+  // const apicategory = "technology";
+  // const apiurl = `https://newsapi.org/v2/top-headlines?country=${apicountry}&category=${apicategory}&apiKey=${apikey}`;
   let blogscontainer = document.querySelector(".blogscontainer");
   let fetchapi = fetch(apiurl);
   fetchapi
@@ -44,10 +44,10 @@ function technewsapi() {
     })
     .then((data) => {
       let allarticles = data.articles;
-      console.log(allarticles);
+      // console.log(allarticles);
       let eacharticletext = "";
       for (let eacharticle in allarticles) {
-        console.log(allarticles[eacharticle]);
+        // console.log(allarticles[eacharticle]);
         if (
           allarticles[eacharticle].urlToImage &&
           allarticles[eacharticle].author !== null
@@ -94,7 +94,7 @@ function technewsapi() {
         }
       }
       blogscontainer.innerHTML = eacharticletext;
-      console.log(data);
+      // console.log(data);
     });
 }
 // technewsapi();
