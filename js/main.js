@@ -21,92 +21,77 @@ searchbloginputfield.addEventListener("keyup", () => {
   let singleblogcard = Array.from(blogcards).forEach((singleblogcard) => {
     let blogcardtext = singleblogcard.textContent.toLowerCase();
     if (blogcardtext.includes(searchterm)) {
-      singleblogcard.style.display = "flex";
+      singleblogcard.style.display = "block";
     } else {
       singleblogcard.style.display = "none";
     }
   });
 });
 
-// ================================ blog comments form ================================
-const blogcommentsform = document.querySelector(".blogcommentsform");
-const inputname = document.getElementById("inputname");
-const inputemail = document.getElementById("inputemail");
-const inputblogcommentsfield = document.getElementById(
-  "inputblogcommentsfield"
-);
-const blogformerror = document.getElementById("blogformerror");
-let validinputname = false;
-let validinputemail = false;
-let validinputblogtextarea = false;
-inputname.addEventListener("blur", (e) => {
-  let inputnamevalue = inputname.value;
-  let regexname = /^([a-zA-Z]\s*){3,25}$/;
-  if (regexname.test(inputnamevalue)) {
-    validinputname = true;
-    inputname.classList.remove("blogforminputerror");
-  } else {
-    validinputname = false;
-    inputname.classList.add("blogforminputerror");
-  }
-});
-inputemail.addEventListener("blur", (e) => {
-  let inputemailvalue = inputemail.value;
-  let regexemail =
-    /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]){1,25}$/;
-  if (regexemail.test(inputemailvalue)) {
-    validinputemail = true;
-    inputemail.classList.remove("blogforminputerror");
-  } else {
-    validinputemail = false;
-    inputemail.classList.add("blogforminputerror");
-  }
-});
-// if the validations are true then the form will be submitted otherwise not and the required input fields will show errors
-blogcommentsform.addEventListener("submit", (e) => {
-  e.preventDefault();
-  if (
-    validinputname == true &&
-    validinputemail == true &&
-    inputblogcommentsfield
-  ) {
-    // now all the validation are true so first it will store the user comments into localstorage in encrypted format then submit and reset the form
-    let storenamevalue = btoa(inputname.value);
-    let storeemailvalue = btoa(inputemail.value);
-    let inputblogcommentsfieldvalue = btoa(inputblogcommentsfield.value);
-    // let postcommentsdatabase = new Array();
-    // getting the localstorage's data as encrypted format beacause we aren't printing it anywehren if need to print then use atob("pass localstorage's key as string")
-    let postcommentsdatabase = JSON.parse(
-      localStorage.getItem("cG9zdGNvbW1lbnRz")
-    )
-      ? JSON.parse(localStorage.getItem("cG9zdGNvbW1lbnRz"))
-      : [];
-    // bypass duplicate entries if the same email id user is trying to comment to the post then it can't submit the form and comment it post emailid must be unique
-    if (
-      postcommentsdatabase.some((duplicatevalues) => {
-        return duplicatevalues.emailid == storeemailvalue;
-      })
-    ) {
-      blogcommentsform.reset();
-      blogformerror.style.display = "block";
-    } else {
-      let postcommentsentry = {
-        name: storenamevalue,
-        emailid: storeemailvalue,
-        comments: inputblogcommentsfieldvalue,
-      };
-      postcommentsdatabase.push(postcommentsentry);
-      // ============================== encrypted the localstorage's key ==============================
-      let postcomments = localStorage.setItem(
-        btoa("postcomments"),
-        JSON.stringify(postcommentsdatabase)
-      );
-      blogcommentsform.submit();
-      blogcommentsform.reset();
-      location.href = "index.html";
+// ================================ news api ================================
+const apikey = "d78bc78661f64e2ca8be27e4d918e917";
+const apicountry = "in";
+const apicategory = "technology";
+const apiurl = `https://newsapi.org/v2/top-headlines?country=${apicountry}&category=${apicategory}&apiKey=${apikey}`;
+let blogscontainer = document.querySelector(".blogscontainer");
+let fetchapi = fetch(apiurl);
+fetchapi
+  .then((response) => {
+    // ================================ printing the response in json format from the news api ================================
+    // console.log(response);
+    return response.json();
+  })
+  .then((data) => {
+    let allarticles = data.articles;
+    console.log(allarticles);
+    let eacharticletext = "";
+    for (let eacharticle in allarticles) {
+      console.log(allarticles[eacharticle]);
+      if (
+        allarticles[eacharticle].urlToImage &&
+        allarticles[eacharticle].author !== null
+      ) {
+        // if the api data is containing the particular data's image with author name is not equal to null then it will only show the data otherwise not
+        eacharticle = `<div class="blogcards">
+          <div class="blogphotobox">
+            <img
+              src="${allarticles[eacharticle].urlToImage}"
+              alt="blog photo"
+              class="blogphoto"
+            />
+          </div>
+          <div class="blogdetails">
+            <div class="blogiconsdetails">
+              <div class="singleblogicon">
+                <span class="blogicontext"
+                  ><i class="fa fa-user"></i> ${allarticles[eacharticle].author}</span
+                >
+              </div>
+              <div class="singleblogicon">
+                <span class="blogicontext"
+                  ><i class="fa-solid fa-calendar-days"></i> ${allarticles[eacharticle].publishedAt}</span
+                >
+              </div>
+              <!-- <div class="singleblogicon">
+              <span class="blogicontext"
+                ><i class="fa fa-comment"></i> 0 Comments</span
+              >
+            </div> -->
+            </div>
+            <div class="blogcontent">
+              <a href="${allarticles[eacharticle].url}"
+                ><h2 class="blogheadline">${allarticles[eacharticle].title}</h2></a
+              >
+              <p class="blogdescription">${allarticles[eacharticle].description}</p>
+              <a href="${allarticles[eacharticle].url}"
+                ><button class="readmorebtn">read more</button></a
+              >
+            </div>
+          </div>
+        </div>`;
+        eacharticletext += eacharticle;
+      }
     }
-  } else {
-    blogformerror.style.display = "none";
-    blogcommentsform.reset();
-  }
-});
+    blogscontainer.innerHTML = eacharticletext;
+    console.log(data);
+  });

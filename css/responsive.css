@@ -5,7 +5,6 @@
     cursor: pointer;
     display: block;
   }
-
   .hamburgermenu .bars {
     height: 2px;
     width: 25px;
@@ -77,7 +76,7 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    gap: 2em;
+    gap: 10px;
     margin: 0 auto;
     padding: var(--card-padding) 0;
     place-content: center;
@@ -179,6 +178,21 @@
   .recentpostscard .imagebox {
     width: auto;
     height: auto;
+  }
+  .blogphotobox {
+    height: 100%;
+    width: 90%;
+  }
+  .blogcontent .blogheadline,
+  .bannerheadline {
+    font-size: 1em;
+  }
+  .blogdetails .blogiconsdetails {
+    white-space: normal;
+    flex-direction: column;
+  }
+  .blogcontent {
+    padding: 0;
   }
 }
 
@@ -261,7 +275,7 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    gap: 2em;
+    gap: 10px;
     margin: 0 auto;
     padding: var(--card-padding) 0;
     place-content: center;
@@ -364,6 +378,21 @@
     width: auto;
     height: auto;
   }
+  .blogphotobox {
+    height: 100%;
+    width: 90%;
+  }
+  .blogcontent .blogheadline,
+  .bannerheadline {
+    font-size: 1em;
+  }
+  .blogdetails .blogiconsdetails {
+    white-space: normal;
+    flex-direction: column;
+  }
+  .blogcontent {
+    padding: 0;
+  }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -373,7 +402,6 @@
     cursor: pointer;
     display: block;
   }
-
   .hamburgermenu .bars {
     height: 2px;
     width: 25px;
@@ -445,7 +473,7 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    gap: 2em;
+    gap: 10px;
     margin: 0 auto;
     padding: var(--card-padding) 0;
     place-content: center;
@@ -535,6 +563,27 @@
   .recentpostscard .imagebox {
     width: 5em;
     height: auto;
+  }
+  .blogphotobox {
+    height: 100%;
+    width: 90%;
+  }
+  .blogcontent .blogheadline,
+  .bannerheadline {
+    font-size: 1em;
+  }
+  .blogdetails .blogiconsdetails {
+    white-space: normal;
+    justify-content: center;
+  }
+  .blogcards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .blogcontent {
+    padding: 0;
   }
 }
 
@@ -617,7 +666,7 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    gap: 2em;
+    gap: 10px;
     margin: 0 auto;
     padding: var(--card-padding) 0;
     place-content: center;
@@ -707,5 +756,17 @@
   .recentpostscard .imagebox {
     width: 5em;
     height: auto;
+  }
+  .blogphotobox {
+    height: 100%;
+    width: 90%;
+  }
+  .blogcontent .blogheadline,
+  .bannerheadline {
+    font-size: 1em;
+  }
+  .blogdetails .blogiconsdetails {
+    white-space: normal;
+    justify-content: center;
   }
 }
