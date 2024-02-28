@@ -238,13 +238,14 @@ h5 {
   align-items: center;
   border-radius: var(--border-radius-3);
   padding: var(--border-radius-2);
-  box-shadow: 0 0 0.5em 0.1em var(--color-danger);
+  box-shadow: var(--box-shadow);
+  background: transparent;
   transition: all 0.4s ease-in-out;
 }
 
-/* .blogcards:hover {
+.blogcards:hover {
   box-shadow: none;
-} */
+}
 
 .blogdetails .blogiconsdetails {
   display: flex;
@@ -513,8 +514,10 @@ h5 {
 
 /* ====================== blog comments form ====================== */
 .blogcommentformcontainer {
-  background-color: lightgrey;
+  background: transparent;
   padding: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-3);
 }
 
 .blogcommentsform {
@@ -536,7 +539,7 @@ h5 {
 }
 
 .inputfields {
-  border: none;
+  border: 1px solid var(--color-dark-variant);
   outline: none;
   padding: 10px 18px;
   width: 25vw;
@@ -575,6 +578,10 @@ h5 {
 .searchinputfield {
   position: relative;
   padding: var(--border-radius-3) 0;
+}
+
+.searchinputfield .inputfields {
+  border: none;
 }
 
 .searchinputfield .inputfields:focus {
